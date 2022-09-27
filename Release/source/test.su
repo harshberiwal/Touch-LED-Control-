@@ -1,0 +1,9 @@
+../source/test.c:59:6:gpio_init	12	static
+../source/test.c:119:6:change_LED	12	static
+../source/test.c:82:6:startup_sequence	24	static
+../source/test.c:191:6:delay_us	0	static
+../source/test.c:198:6:Touch_Init	0	static
+../source/test.c:216:5:Touch_Poll	0	static
+../source/test.c:226:6:check_Touch	16	static
+../source/test.c:284:6:initialize_SysTick	0	static
+../source/test.c:14:5:main	24	static
