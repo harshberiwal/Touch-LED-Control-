@@ -2,6 +2,11 @@
 Test Blinking Pattern and Touch Slider 
 
 /*
+ * Author: Harsh Beriwal
+ * IDE Used: MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13]
+ * Github Link: https://github.com/harshberiwal/PES_Assignment_3
+ * No leveraged code or files
+ * 
  * test.c includes all the definitions of functions declared in test.h.
  * test.h includes all the declarations of functions used in test.c
  *
@@ -21,15 +26,10 @@ Test Blinking Pattern and Touch Slider
  * delay.h includes all the declarations of function related to delay
  * This include delay_us()
  *
- * Author: Harsh Beriwal
- * IDE Used: MCUXpresso IDE v11.6.0 [Build 8187] [2022-07-13]
- * Github Link: https://github.com/harshberiwal/PES_Assignment_3
- * No leveraged code or files
- *
  */
 
 
-1)At program startup, test will “test” the LED by blinking in the following pattern:
+1. At program startup, test will “test” the LED by blinking in the following pattern:
 
 RED for 500 msec, OFF for 100 msec, 
 GREEN for 500 msec, OFF for 100 msec,
@@ -37,7 +37,7 @@ BLUE for 500 msec, OFF for 100 msec
 WHITE (that is, RED, GREEN, and BLUE all on) for 100 msec, OFF for 100 msec
 WHITE for 100 msec, OFF for 100 MSEC
 
-2) Blinkenlights will then enter an infinite loop where the LED will be flashed using the following 
+2. Blinkenlights will then enter an infinite loop where the LED will be flashed using the following 
 pattern:
 
 ON for 500 msec, OFF for 500 msec, 
@@ -46,7 +46,7 @@ ON for 2000 msec, OFF for 500 msec,
 ON for 3000 msec, OFF for 500 msec
 Go back to the top (e.g., ON for 500 msec...)
 
-3) During the infinite loop, the color when the LED is ON will initially be white. If the user touches the 
+3. During the infinite loop, the color when the LED is ON will initially be white. If the user touches the 
 capacitive touch slider, the color will change as follows:
 
 User touches Color
@@ -57,7 +57,7 @@ Right side of slider Blue
 The test poll the touch slider at least once every 100 msec. If the LED is on 
 when a touch is detected, the light color should change immediately.
 
-4) The code has two build targets, DEBUG and RUN. The LED and touch behavior will be the 
+4. The code has two build targets, DEBUG and RUN. The LED and touch behavior will be the 
 same under both targets; however, the DEBUG target will additionally cause the following debug 
 output (via printf) to a serial console:
 
@@ -161,7 +161,7 @@ void initialize_SysTick();
  */
 bool change_LED();
 
-#*********************EXTRA CREDIT***************************#
+##EXTRA CREDIT##
 
 1) What is the address of your main() function, and what is the size in bytes of your delay() function?  
 
