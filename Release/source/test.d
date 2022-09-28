@@ -17,7 +17,9 @@ source/test.o source/test.d: ../source/test.c ../source/test.h \
  D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/pin_mux.h \
  D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/clock_config.h \
  D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\CMSIS/MKL25Z4.h \
- D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\utilities/fsl_debug_console.h
+ D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\utilities/fsl_debug_console.h \
+ ../source/touch.h ../source/system.h ../source/led_sequence.h \
+ ../source/gpio.h ../source/delay.h
 ../source/test.h:
 D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/board.h:
 D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/clock_config.h:
@@ -38,3 +40,8 @@ D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/pin_mux.h:
 D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\board/clock_config.h:
 D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\CMSIS/MKL25Z4.h:
 D:\CU\ BOULDER\Coursework\Sem\ 1\ -\ PES\test\utilities/fsl_debug_console.h:
+../source/touch.h:
+../source/system.h:
+../source/led_sequence.h:
+../source/gpio.h:
+../source/delay.h:

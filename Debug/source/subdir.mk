@@ -4,19 +4,34 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../source/delay.c \
+../source/gpio.c \
+../source/led_sequence.c \
 ../source/mtb.c \
 ../source/semihost_hardfault.c \
-../source/test.c 
+../source/system.c \
+../source/test.c \
+../source/touch.c 
 
 C_DEPS += \
+./source/delay.d \
+./source/gpio.d \
+./source/led_sequence.d \
 ./source/mtb.d \
 ./source/semihost_hardfault.d \
-./source/test.d 
+./source/system.d \
+./source/test.d \
+./source/touch.d 
 
 OBJS += \
+./source/delay.o \
+./source/gpio.o \
+./source/led_sequence.o \
 ./source/mtb.o \
 ./source/semihost_hardfault.o \
-./source/test.o 
+./source/system.o \
+./source/test.o \
+./source/touch.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -31,7 +46,7 @@ source/%.o: ../source/%.c source/subdir.mk
 clean: clean-source
 
 clean-source:
-	-$(RM) ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/test.d ./source/test.o
+	-$(RM) ./source/delay.d ./source/delay.o ./source/gpio.d ./source/gpio.o ./source/led_sequence.d ./source/led_sequence.o ./source/mtb.d ./source/mtb.o ./source/semihost_hardfault.d ./source/semihost_hardfault.o ./source/system.d ./source/system.o ./source/test.d ./source/test.o ./source/touch.d ./source/touch.o
 
 .PHONY: clean-source
 
