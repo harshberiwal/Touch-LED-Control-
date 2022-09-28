@@ -165,21 +165,21 @@ bool change_LED();
 
 1) What is the address of your main() function, and what is the size in bytes of your delay() function?  
 
-The Main() Function address starts at 0x535. 
+  The Main() Function address starts at 0x9FD. 
 
-Below is the Definition of the Delay() function in the map file 
+  Below is the Definition of the Delay() function in the map file 
 
-.text.delay_us
-                0x00003670       0x26 ./source/test.o
-                0x00003670                delay_us
+  .text.delay_us
+                0x0000332c       0x26 ./source/delay.o
+                0x0000332c                delay_us
 
-The Delay() function has a Size of 38 bytes. 
+  The Delay() function has a Size of 38 bytes. 
 
 2) Show the full disassembly of your delay() function, adding comments to each line to explain the 
 functionality.  [+4 points]
 
-delay_us(1000); 
+  delay_us(1000); 
 
-00000992:   movs    r3, #250        ; 0xfa (250 Decimal) to the R3 register 
-00000994:   lsls    r3, r3, #2      ; Left shifted twice to get the Required Count 
-00000996:   movs    r0, r3          ; Copied the Same value from R3 to the Accumulator 
+  00000992:   movs    r3, #250        ; 0xfa (250 Decimal) to the R3 register 
+  00000994:   lsls    r3, r3, #2      ; Left shifted twice to get the Required Count 
+  00000996:   movs    r0, r3          ; Copied the Same value from R3 to the Accumulator 
