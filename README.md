@@ -77,6 +77,7 @@ output (via printf) to a serial console:
  * Returns:
  *   None
  */
+ 
 void gpio_init();
 
 /*
@@ -88,6 +89,7 @@ void gpio_init();
  * Returns:
  *   None
  */
+ 
 void delay_us(uint32_t value);
 
 /*
@@ -99,6 +101,7 @@ void delay_us(uint32_t value);
  * Returns:
  *   None
  */
+ 
 void startup_sequence();
 
 /*
@@ -110,6 +113,7 @@ void startup_sequence();
  * Returns:
  *   Scanned Value between 0 to 65535
  */
+ 
 int Touch_Poll(void);
 
 
@@ -122,6 +126,7 @@ int Touch_Poll(void);
  * Returns:
  *   None
  */
+ 
 void Touch_Init();
 
 
@@ -135,6 +140,7 @@ void Touch_Init();
  * Returns:
  *   None
  */
+ 
 void check_Touch();
 
 /*
@@ -146,6 +152,7 @@ void check_Touch();
  * Returns:
  *   None
  */
+ 
 void initialize_SysTick();
 
 
@@ -159,6 +166,7 @@ void initialize_SysTick();
  *  Returns the value into the LED_ON_STATUS flag.
  *  True if LED is ON and False if the LED is off
  */
+ 
 bool change_LED();
 
 ##EXTRA CREDIT##
@@ -178,8 +186,56 @@ bool change_LED();
 2) Show the full disassembly of your delay() function, adding comments to each line to explain the 
 functionality.  [+4 points]
 
-  delay_us(1000); 
+           delay_us:
+0000332c:   push    {r7, lr}                ; For stack Manipulation. Putting Value in R7 from the Stack pointer
+0000332e:   sub     sp, #16                 ; Immediate Value addressing Subtracing 16 from stack pointer
+00003330:   add     r7, sp, #0           
+00003332:   str     r0, [r7, #4]
+19        	for(int i =0; i<value;i++);
+00003334:   movs    r3, #0                  ; Initialization for variable i in C
+00003336:   str     r3, [r7, #12]           ; Store Register with the corresponding offset in the memory  
+00003338:   b.n     0x3340 <delay_us+20>    ; unconditional branch. The .N suffix tells the assembler to encode the instruction using 16 bits.
+0000333a:   ldr     r3, [r7, #12]           ; Load Register with the 
+0000333c:   adds    r3, #1                  ; Incrementing 1 to i everytime 
+0000333e:   str     r3, [r7, #12]           ; Storing the After results every 12 clock cycles 
+00003340:   ldr     r3, [r7, #12]           ; Loading the register with stored value in the store Register 
+00003342:   ldr     r2, [r7, #4]            
+00003344:   cmp     r2, r3                  ; Comparing if value Variable is equal to the current i count 
+00003346:   bhi.n   0x333a <delay_us+14>    ; If equal exit, otherwise jump to b.n branch. 
+20        }
 
-  00000992:   movs    r3, #250        ; 0xfa (250 Decimal) to the R3 register 
-  00000994:   lsls    r3, r3, #2      ; Left shifted twice to get the Required Count 
-  00000996:   movs    r0, r3          ; Copied the Same value from R3 to the Accumulator 
+#PEER REVIEW#
+
+Comments for Assignment 3:
+
+1) Seperate files for each aspect of the project i.e. led, touch, etc or wrt functions can be
+used instead of writing everything in 2 files i.e. test.c and test.h
+It wouldn’t be possible to make these changes at this point, but still just mentioned it
+here as an observation
+
+2) PORT masks can be used instead of defining them again (only used at some instances)
+As used in the code snippets of White book, particularly for MUX bits
+
+3) Rather than shifting it like (1<<x) each time, a define can be created as shown in White
+book
+#define Mask(x) (1UL << x)
+
+4) For DEBUG statements, rather than writing it again and again with #ifdef, a log/debug
+header can be created to avoid repeated conventions and making the code modular
+
+5) Create functions for toggling leds(individual LEDs) apart from the change_led()function
+(as it provides collective operation of the desired output as a whole and not individual) as
+individual LED control statements are repeated many times in check_touch() function
+
+#Following Changes were made post the PEER_REVIEW#
+
+1) Seperate Files were made in the project for touch, gpio, system, delay, led, etc. 
+
+2) Not chnaged as I have only initialized port once and not defined again. 
+
+3) Macro was created for all. The one where Left shift is used in the function is because of making the reader understand of the logic. 
+
+4) Didn't make any change. 
+
+5) I had placed Macros and using a led_color variable for making quick changes in the Change_LED function. So, didn't make any changes to the code for this. 
+
