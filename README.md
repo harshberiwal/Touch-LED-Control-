@@ -173,7 +173,7 @@ bool change_LED();
 
 1) What is the address of your main() function, and what is the size in bytes of your delay() function?  
 
-  The Main() Function address starts at 0x9FD. 
+  The Main() Function address starts at **0x9FD. **
 
   Below is the Definition of the Delay() function in the map file 
 
@@ -181,7 +181,7 @@ bool change_LED();
                 0x0000332c       0x26 ./source/delay.o
                 0x0000332c                delay_us
 
-  The Delay() function has a Size of 38 bytes. 
+  The Delay() function has a Size of **38 bytes. **
 
 2) Show the full disassembly of your delay() function, adding comments to each line to explain the 
 functionality.  [+4 points]
@@ -204,7 +204,7 @@ functionality.  [+4 points]
 00003346:   bhi.n   0x333a <delay_us+14>    ; If equal exit, otherwise jump to b.n branch. <br />
 20        }<br />
 
-#PEER REVIEW#
+##PEER REVIEW##
 
 Comments for Assignment 3:
 
@@ -227,7 +227,7 @@ header can be created to avoid repeated conventions and making the code modular
 (as it provides collective operation of the desired output as a whole and not individual) as
 individual LED control statements are repeated many times in check_touch() function
 
-#Following Changes were made post the PEER_REVIEW#
+##Following Changes were made post the PEER_REVIEW##
 
 1) Seperate Files were made in the project for touch, gpio, system, delay, led, etc. 
 
