@@ -31,29 +31,29 @@ Test Blinking Pattern and Touch Slider
 
 1. At program startup, test will “test” the LED by blinking in the following pattern:
 
-RED for 500 msec, OFF for 100 msec, 
-GREEN for 500 msec, OFF for 100 msec,
-BLUE for 500 msec, OFF for 100 msec
-WHITE (that is, RED, GREEN, and BLUE all on) for 100 msec, OFF for 100 msec
-WHITE for 100 msec, OFF for 100 MSEC
+RED for 500 msec, OFF for 100 msec, <br />
+GREEN for 500 msec, OFF for 100 msec,<br />
+BLUE for 500 msec, OFF for 100 msec<br />
+WHITE (that is, RED, GREEN, and BLUE all on) for 100 msec, OFF for 100 msec<br />
+WHITE for 100 msec, OFF for 100 MSEC<br />
 
 2. Blinkenlights will then enter an infinite loop where the LED will be flashed using the following 
 pattern:
 
-ON for 500 msec, OFF for 500 msec, 
-ON for 1000 msec, OFF for 500 msec,
-ON for 2000 msec, OFF for 500 msec,
-ON for 3000 msec, OFF for 500 msec
-Go back to the top (e.g., ON for 500 msec...)
+ON for 500 msec, OFF for 500 msec, <br />
+ON for 1000 msec, OFF for 500 msec, <br />
+ON for 2000 msec, OFF for 500 msec,<br />
+ON for 3000 msec, OFF for 500 msec<br />
+Go back to the top (e.g., ON for 500 msec...)<br />
 
 3. During the infinite loop, the color when the LED is ON will initially be white. If the user touches the 
 capacitive touch slider, the color will change as follows:
 
-User touches Color
-Left side of slider Red
-Center of slider Green
-Right side of slider Blue
-(There is no way to get back to white after touching the slider.) 
+User touches Color  <br />
+Left side of slider Red<br />
+Center of slider Green<br />
+Right side of slider Blue<br />
+
 The test poll the touch slider at least once every 100 msec. If the LED is on 
 when a touch is detected, the light color should change immediately.
 
@@ -187,22 +187,22 @@ bool change_LED();
 functionality.  [+4 points]
 
            delay_us:
-0000332c:   push    {r7, lr}                ; For stack Manipulation. Putting Value in R7 from the Stack pointer
-0000332e:   sub     sp, #16                 ; Immediate Value addressing Subtracing 16 from stack pointer
-00003330:   add     r7, sp, #0           
-00003332:   str     r0, [r7, #4]
-19        	for(int i =0; i<value;i++);
-00003334:   movs    r3, #0                  ; Initialization for variable i in C
-00003336:   str     r3, [r7, #12]           ; Store Register with the corresponding offset in the memory  
-00003338:   b.n     0x3340 <delay_us+20>    ; unconditional branch. The .N suffix tells the assembler to encode the instruction using 16 bits.
-0000333a:   ldr     r3, [r7, #12]           ; Load Register with the 
-0000333c:   adds    r3, #1                  ; Incrementing 1 to i everytime 
-0000333e:   str     r3, [r7, #12]           ; Storing the After results every 12 clock cycles 
-00003340:   ldr     r3, [r7, #12]           ; Loading the register with stored value in the store Register 
-00003342:   ldr     r2, [r7, #4]            
-00003344:   cmp     r2, r3                  ; Comparing if value Variable is equal to the current i count 
-00003346:   bhi.n   0x333a <delay_us+14>    ; If equal exit, otherwise jump to b.n branch. 
-20        }
+0000332c:   push    {r7, lr}                ; For stack Manipulation. Putting Value in R7 from the Stack pointer <br />
+0000332e:   sub     sp, #16                 ; Immediate Value addressing Subtracing 16 from stack pointer<br />
+00003330:   add     r7, sp, #0           <br />
+00003332:   str     r0, [r7, #4]         <br />
+19        	for(int i =0; i<value;i++);  <br />
+00003334:   movs    r3, #0                  ; Initialization for variable i in C <br />
+00003336:   str     r3, [r7, #12]           ; Store Register with the corresponding offset in the memory  <br />
+00003338:   b.n     0x3340 <delay_us+20>    ; unconditional branch. The .N suffix tells the assembler to encode the instruction using 16 bits.<br />
+0000333a:   ldr     r3, [r7, #12]           ; Load Register with the <br />
+0000333c:   adds    r3, #1                  ; Incrementing 1 to i everytime <br />
+0000333e:   str     r3, [r7, #12]           ; Storing the After results every 12 clock cycles <br />
+00003340:   ldr     r3, [r7, #12]           ; Loading the register with stored value in the store Register <br />
+00003342:   ldr     r2, [r7, #4]            <br />
+00003344:   cmp     r2, r3                  ; Comparing if value Variable is equal to the current i count <br />
+00003346:   bhi.n   0x333a <delay_us+14>    ; If equal exit, otherwise jump to b.n branch. <br />
+20        }<br />
 
 #PEER REVIEW#
 
