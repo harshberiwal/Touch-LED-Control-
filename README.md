@@ -39,6 +39,7 @@ WHITE for 100 msec, OFF for 100 MSEC
 
 2) Blinkenlights will then enter an infinite loop where the LED will be flashed using the following 
 pattern:
+
 ON for 500 msec, OFF for 500 msec, 
 ON for 1000 msec, OFF for 500 msec,
 ON for 2000 msec, OFF for 500 msec,
@@ -47,6 +48,7 @@ Go back to the top (e.g., ON for 500 msec...)
 
 3) During the infinite loop, the color when the LED is ON will initially be white. If the user touches the 
 capacitive touch slider, the color will change as follows:
+
 User touches Color
 Left side of slider Red
 Center of slider Green
@@ -58,6 +60,7 @@ when a touch is detected, the light color should change immediately.
 4) The code has two build targets, DEBUG and RUN. The LED and touch behavior will be the 
 same under both targets; however, the DEBUG target will additionally cause the following debug 
 output (via printf) to a serial console:
+
  CHANGE LED TO RED, etc. for changes to the LED color
  SLIDER VALUE 87 for changes to the slider value including showing the value read1
  START TIMER 2000 for starting a 2000 mSec delay
@@ -158,7 +161,7 @@ void initialize_SysTick();
  */
 bool change_LED();
 
-##*********************EXTRA CREDIT***************************##
+#*********************EXTRA CREDIT***************************#
 
 1) What is the address of your main() function, and what is the size in bytes of your delay() function?  
 
